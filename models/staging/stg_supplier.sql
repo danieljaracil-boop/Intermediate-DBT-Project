@@ -7,3 +7,8 @@ SELECT
     s_phone AS phone_number,
     s_acctbal AS account_balance
 FROM {{ source('tpch_source', 'supplier') }}
+
+
+
+
+

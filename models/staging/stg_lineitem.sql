@@ -11,3 +11,4 @@ SELECT
     l_tax AS tax_rate,
     l_shipdate AS ship_date
 FROM {{ source('tpch_source', 'lineitem') }}
+
