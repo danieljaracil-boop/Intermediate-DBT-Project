@@ -1,13 +1,14 @@
 {{ config(materialized='table') }}
 
 SELECT
-    lineitem_id,
-    order_id,
-    customer_id,
-    part_id,
-    supplier_id,
-    order_date,
-    quantity,
-    extended_price,
-    net_item_sales_amount
-FROM {{ ref('int_order_items') }}
+    item.lineitem_id,
+    item.order_id,
+    item.customer_id,
+    item.part_id,
+    item.supplier_id,
+    item.order_date AS date_id, -- Esta es nuestra clave de unión con dim_date
+    item.quantity,
+    item.net_item_sales_amount,
+    SUM(item.net_item_sales_amount) OVER (PARTITION BY item.order_id) AS total_order_amount
+FROM {{ ref('int_order_items') }} AS item
+WHERE item.order_date IS NOT NULL
