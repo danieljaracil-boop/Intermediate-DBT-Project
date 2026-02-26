@@ -1,8 +1,26 @@
+version: 2
+
 models:
   - name: fct_sales
+    description: "Capa final de consumo con modelo dimensional explotable"
     columns:
+      - name: lineitem_id
+        tests:
+          - unique
+          - not_null
       - name: customer_id
         tests:
           - relationships:
               to: ref('dim_customers')
               field: customer_id
+      - name: net_item_sales_amount
+        tests:
+          - test_no_negative_values 
+
+  - name: dim_customers
+    description: "Dimensión de clientes"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
