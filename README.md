@@ -14,14 +14,14 @@ Mapeo directo y limpieza inicial de las entidades fuente.
 
 ### B. Intermediate Layer (`models/intermediate/`)
 Capa de lógica de negocio donde se realizan cruces complejos y cálculos.
-* **Modelo**: `int_order_items`.
+* **Modelos**: `int_order_items` y `int_locations`.
 * **Lógica**: Uso de una **Macro personalizada** (`calculate_discounted_amount`) para centralizar el cálculo del importe neto tras descuentos, garantizando la reutilización del código.
 * **Materialización**: Vista.
 
 ### C. Business Layer - Marts (`models/marts/`)
 Producto final listo para el negocio, estructurado como modelo dimensional.
-* **Fact Table**: `fct_sales` (Métricas de ventas agregadas y detalle transaccional).
-* **Dimensions**: `dim_customers` (Atributos de cliente) y `dim_date` (Dimensión temporal generada mediante *date spine*).
+* **Fact Table**: `fct_sales` (Métricas de ventas agregadase).
+* **Dimensions**: `dim_customers` (Atributos de cliente), `dim_locations` (Dimensión espacial simplificada) y `dim_date` (Dimensión temporal generada mediante *date spine*).
 * **Materialización**: Tablas.
 
 
