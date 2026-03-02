@@ -9,4 +9,27 @@ models:
         tests:
           - accepted_values:
               values: ['P', 'O', 'F']
+          - not_null
+
+      - name: order_priority_code
+        description: "Código de prioridad del pedido (H=Alta, M=Media, L=Baja, NS=Sin especificar)."
+        tests:
+          - accepted_values:
+              values: ['H', 'M', 'L', 'NS']
+
+      - name: order_id
+        description: "Número de identificación único del pedido."
+        tests:
+          - unique
           - not_null 
+
+  - name: stg_parts
+    description: "Tabla de partes con información estandarizada."
+    columns:
+      - name: part_id
+        description: "Número de identificación único de la parte."
+        tests:
+          - unique
+          - not_null
+
+  
