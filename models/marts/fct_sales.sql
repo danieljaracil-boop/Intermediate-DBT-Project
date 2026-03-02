@@ -6,6 +6,7 @@ SELECT
     item.customer_id,
     item.part_id,
     item.supplier_id,
+    item.nation_id,
     item.order_date AS date_id, -- Clave de unión con dim_date
     item.quantity,
     item.net_item_sales_amount, 

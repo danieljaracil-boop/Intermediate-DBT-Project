@@ -33,4 +33,11 @@ models:
         tests:
           - unique
           - not_null
+  - name: dim_locations
+    description: "Dimensión de ubicación"
+    columns:
+      - name: nation_id
+        tests:
+          - unique
+          - not_null
           

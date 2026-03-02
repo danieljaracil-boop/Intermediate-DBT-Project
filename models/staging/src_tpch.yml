@@ -16,3 +16,6 @@ sources:
       - name: customer
       - name: part
       - name: supplier
+      - name: partsupp
+      - name: nation
+      - name: region

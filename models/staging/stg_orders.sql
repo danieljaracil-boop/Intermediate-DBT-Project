@@ -16,7 +16,7 @@ SELECT
             when o_orderpriority like '4%' then 'Not Specified'
             when o_orderpriority like '5%' then 'Low'
             else 'NS'
-        end as order_priority,
+    end as order_priority,
     o_totalprice AS total_price,
     o_orderdate AS order_date
 FROM {{ source('tpch_source', 'orders') }}
